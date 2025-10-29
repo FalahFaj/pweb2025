@@ -6,6 +6,7 @@ use App\Http\Controllers\UniversityController;
 use App\Http\Controllers\AcademicYearsController;
 use App\Http\Controllers\ActivityLogController;
 use App\Http\Controllers\AlumniController;
+use App\Http\Controllers\CourseRegistrationController;
 use App\Http\Controllers\DataChangeHistoryController;
 use App\Http\Controllers\SemesterController;
 use App\Http\Controllers\ScholarshipController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\TrainingParticipantController;
+use App\Http\Controllers\TuitionFeeController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -42,4 +44,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('alumni', AlumniController::class);
     Route::resource('schedules', ScheduleController::class);
     Route::resource('training-participant', TrainingParticipantController::class);
+    Route::resource('tuition-fee', TuitionFeeController::class);
+    Route::resource('course-registration', CourseRegistrationController::class);
 });
