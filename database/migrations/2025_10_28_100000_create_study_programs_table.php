@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('study_programs', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('department_id')->constrained('departments')->onDelete('cascade');
+            $table->foreignId('department_id')->constrained('departments');
             $table->string('name');
-            $table->string('degree_level'); // misal: S1, D3, dll
-            $table->string('accreditation')->nullable(); // misal: A, B, C
+            $table->string('degree_level');
+            $table->string('accreditation')->nullable(false);
             $table->timestamps();
         });
     }

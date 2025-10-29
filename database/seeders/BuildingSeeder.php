@@ -1,18 +1,18 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\Faculty;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Building;
 
-class FacultySeeder extends Seeder
+class BuildingSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Faculty::factory()->count(5)->create();
+        Building::factory()->count(5)->create();
     }
 }

@@ -18,7 +18,7 @@ class CoursesController extends Controller
                     ->orderBy('id', 'desc')
                     ->paginate(10);
         return view('course.index', compact('courses'));
-    
+
     }
 
     /**

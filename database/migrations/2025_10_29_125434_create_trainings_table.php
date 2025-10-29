@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('departments', function (Blueprint $table) {
+        Schema::create('trainings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('faculty_id')->constrained('faculties')->onDelete('cascade');
             $table->string('name');
-            $table->string('department_code');
-            $table->string('head_of_department');
+            $table->string('provider'); // Penyelenggara
+            $table->date('start_date');
+            $table->date('end_date');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('departments');
+        Schema::dropIfExists('trainings');
     }
 };

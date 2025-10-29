@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\StudyProgram;
+use App\Models\Department;
 
 class StudyProgramSeeder extends Seeder
 {
@@ -13,25 +14,15 @@ class StudyProgramSeeder extends Seeder
      */
     public function run(): void
     {
-        StudyProgram::firstOrCreate([
-            // 'department_id' => 1,
-            'name' => 'Informatika',
-            'degree_level' => 'S1',
-            'accreditation' => 'A',
-        ]);
+        $departmentIds = Department::pluck('id');
 
-        StudyProgram::firstOrCreate([
-            // 'department_id' => 1,
-            'name' => 'Sistem Informasi',
-            'degree_level' => 'S1',
-            'accreditation' => 'B',
-        ]);
+        if ($departmentIds->isEmpty()) {
+            echo "Tidak ada data Department. Jalankan DepartmentSeeder terlebih dahulu.\n";
+            return;
+        }
 
-        StudyProgram::firstOrCreate([
-            // 'department_id' => 2,
-            'name' => 'Teknik Komputer',
-            'degree_level' => 'D3',
-            'accreditation' => 'A',
+        StudyProgram::factory()->count(3)->create([
+            'department_id' => $departmentIds->random()
         ]);
     }
 }
